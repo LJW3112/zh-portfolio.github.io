@@ -56,6 +56,7 @@ header h1 {
 
 section {
   padding: 40px 20px;
+  
 }
 
 h2 {
@@ -63,6 +64,15 @@ h2 {
   border-bottom: 1px solid #333;
   padding-bottom: 5px;
   margin-top: 0;
+}
+h3 {
+  text-align: center;
+}
+.video_1_description{
+  text-align: center;
+  font-size: .8em;
+  color: #8a8a8a;
+  margin-top: 10px;
 }
 
 .projects .item {
@@ -300,6 +310,7 @@ h2 {
 }
 
 
+
 /* 加载动画 */
 #loader {
   position: fixed;
@@ -359,6 +370,18 @@ footer a:hover {
 
 .light-mode footer a {
   color: #111;
+}
+
+/* 作品集视频样式 */
+.video-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.video-wrapper:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 
