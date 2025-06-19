@@ -9,9 +9,11 @@
     <meta name="description" content="特效师作品集：展示 Houdini、粒子、爆炸、烟雾等项目，支持视频播放与技能图谱。">
     <meta name="keywords" content="VFX, Houdini, 特效作品集, 粒子模拟, Redshift, Nuke, Maya">
     <meta name="author" content="Ceng's" />
-
+    
+    <meta name="theme-color" content="#4fa3ff" />
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="favator_1.png" type="image/x-icon">
+    <link rel="manifest" href="manifest.json" />
 
 </head>
 
@@ -158,10 +160,19 @@
 
     // 页面加载动画
     window.addEventListener("load", () => {
-        setTimeout(() => {
-            document.getElementById("loader").style.display = "none";
-        }, 1200); // 延迟1.2秒后隐藏
+        const loader = document.getElementById("loader");
+
+        if (!sessionStorage.getItem("pageLoadedOnce")) {
+            setTimeout(() => {
+                loader.style.display = "none";
+                sessionStorage.setItem("pageLoadedOnce", "true");
+            }, 1100); // 第一次加载延迟隐藏
+        } else {
+            loader.style.display = "none"; // 之后快速跳过
+        }
     });
+
+
 
 
 </script>
