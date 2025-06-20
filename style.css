@@ -283,29 +283,43 @@ h3 {
 #backToTop {
   position: fixed;
   bottom: 40px;
-  right: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  background-color: #444;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #333;
   color: #fff;
   border: none;
-  border-radius: 50%;
-  font-size: 24px;
-  width: 44px;
-  height: 44px;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+#backToTop.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
 }
 
 #backToTop:hover {
-  background-color: #666;
+  background-color: #555;
 }
 
-.light-mode #backToTop {
-  background-color: #ccc;
+#backToTop .arrow-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+body.light-mode #backToTop {
+  background-color: #eee;
   color: #000;
 }
 

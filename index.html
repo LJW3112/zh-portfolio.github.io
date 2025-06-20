@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
     <!-- ✅ SEO 关键标签 -->
     <title>Ceng's - 特效作品集</title>
     <meta name="description" content="特效师作品集：展示 Houdini、粒子、爆炸、烟雾等项目，支持视频播放与技能图谱。">
@@ -61,7 +63,7 @@
                     <span>作品集</span>
                 </div>
             </div>
-            
+
     </section>
 
 
@@ -116,11 +118,13 @@
         <p>© 2025 Ceng's | <a href="resume.pdf" download>📄 下载简历</a></p>
     </footer>
 
-    <button id="backToTop" title="返回顶部">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M12 4L4 12h5v8h6v-8h5L12 4z" fill="white" />
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" title="返回顶部" aria-label="返回顶部">
+        <svg class="arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12h5v8h6v-8h5L12 4z" fill="currentColor" />
         </svg>
     </button>
+
 
 </body>
 
@@ -146,25 +150,25 @@
 
     // 锚点回到顶部
     document.addEventListener("DOMContentLoaded", function () {
-        const backToTop = document.getElementById("backToTop");
+    const backToTop = document.getElementById("backToTop");
 
-        // 监听滚动显示按钮
-        window.addEventListener("scroll", function () {
-            if (window.scrollY > 200) {
-                backToTop.style.display = "block";
-            } else {
-                backToTop.style.display = "none";
-            }
-        });
-
-        // 点击滚动到顶部
-        backToTop.addEventListener("click", function () {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
+    // 监听滚动，控制按钮显示/隐藏
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 200) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
     });
+
+    // 点击回到顶部
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  });
 
 
     // 页面加载动画
@@ -175,7 +179,7 @@
             setTimeout(() => {
                 loader.style.display = "none";
                 sessionStorage.setItem("pageLoadedOnce", "true");
-            }, 1100); // 第一次加载延迟隐藏
+            }, 1000); // 第一次加载延迟隐藏
         } else {
             loader.style.display = "none"; // 之后快速跳过
         }
