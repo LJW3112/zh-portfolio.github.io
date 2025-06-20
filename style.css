@@ -17,10 +17,31 @@ a:hover {
 
 header {
   text-align: center;
-  background-color: #000;
+  /* background-color: #000; */
   padding: 60px 20px;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 200px;
+  z-index: 1;
+  background-image: url(img/Banner.jpg) ;
+  background-size: 100% 99%;
+  background-position: center;
+  box-sizing: border-box;
 }
 
+/*  原来顶部背景 header {
+  padding:60px 20px;
+  background-color: #000;
+  text-align: center;
+} */
+
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
 
 /* 切换到亮色主题时背景变浅 */
 .light-mode header {
@@ -33,10 +54,7 @@ header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-h1 {
-  margin: 0;
-  font-size: 2.5em;
-}
+
 
 /* 默认深色下名字是白色 */
 header h1 {
@@ -45,7 +63,7 @@ header h1 {
 
 /* 在亮色模式下变成黑色 */
 .light-mode header h1 {
-  color: #000;
+  color: #dadada;
 }
 
 .tagline {
@@ -56,7 +74,7 @@ header h1 {
 
 section {
   padding: 40px 20px;
-  
+
 }
 
 h2 {
@@ -65,10 +83,12 @@ h2 {
   padding-bottom: 5px;
   margin-top: 0;
 }
+
 h3 {
   text-align: center;
 }
-.video_1_description{
+
+.video_1_description {
   text-align: center;
   font-size: .8em;
   color: #8a8a8a;
@@ -115,7 +135,7 @@ h3 {
   background-color: #5bc0de;
   width: 0%;
 }
-
+/* 联系 */
 .contact {
   list-style: none;
   padding: 0;
@@ -172,10 +192,10 @@ h3 {
   transform: rotate(20deg);
 }
 
-/* 浅色模式支持 */
+/* 浅色模式支持切换 */
 .light-mode {
-  background-color: #f5f5f5;
-  color: #111;
+  background-color: #f5f5f5; /* 浅色模式下背景颜色 */
+  color: #5c5c5c;/* 浅色模式下字体颜色 */
 }
 
 .light-mode a {
@@ -198,7 +218,7 @@ h3 {
 }
 
 
-/* 动画效果 */
+/* 视频动画效果 */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -241,10 +261,11 @@ h3 {
   }
 }
 
-/* 亮色主题下：光标变黑 */
+ /* 亮色主题下：光标变黑  */
 .light-mode .typing {
-  border-right: 3px solid #000;
-}
+  border-right: 3px solid #000000;
+
+} 
 
 
 
@@ -437,7 +458,7 @@ footer a:hover {
 }
 
 
-/* 小屏适配 */
+/* 视频屏幕宽度小于600px时，适配 */
 @media (max-width: 600px) {
   .video-wrapper {
     max-width: 100%;
