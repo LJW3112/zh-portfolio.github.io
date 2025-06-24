@@ -81,7 +81,7 @@
         <ul class="skills">
             <li>
                 <span class="skill-name">Houdini</span>
-                <div class="skill-bar" ><span style="width: 60%;"></span></div>
+                <div class="skill-bar"><span style="width: 60%;"></span></div>
             </li>
             <li>
                 <span class="skill-name">Nuke</span>
@@ -117,7 +117,27 @@
             <summary>关于我</summary>
             <p>我是一个热爱特效的设计师，擅长使用各种工具实现创意。</p>
         </details>
-        <p>© 2025 Ceng's | <a href="resume.pdf" download>📄 下载简历</a></p>
+        <p>© 2025 Ceng's |
+            <!-- 下载简历按钮 -->
+            <button id="openModalBtn">下载简历</button>
+
+            <!-- 密码验证弹窗 -->
+        <div id="passwordModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h3>请输入下载密码</h3>
+                <p style="font-size: 14px; color: #555;">
+                    密码为当前年月日小时，例如：<code>2025062419</code>
+                </p>
+                <input type="text" id="passwordInput" placeholder="格式如 2025062419">
+                <button id="submitPassword">提交</button>
+                <p id="errorMessage" style="color: red; display: none;">❌ 密码错误，请重试</p>
+                <p id="downloadHelp" style="color: green; display: none; margin-top: 10px;">
+                    ✅ 下载已开始。如失败请 <a href="resume.pdf" download>点击此处手动下载</a>。
+                </p>
+            </div>
+        </div>
+        </p>
     </footer>
 
     <!-- 返回顶部按钮 -->
@@ -130,63 +150,6 @@
 
 </body>
 
-
-<script>
-    // 打字机效果
-    const toggle = document.getElementById("themeToggle");
-    const body = document.body;
-    const current = localStorage.getItem("theme");
-
-    if (current === "light") {
-        body.classList.add("light-mode");
-        toggle.textContent = "☀️";
-    }
-
-    toggle.onclick = () => {
-        body.classList.toggle("light-mode");
-        const isLight = body.classList.contains("light-mode");
-        toggle.textContent = isLight ? "☀️" : "🌙";
-        localStorage.setItem("theme", isLight ? "light" : "dark");
-    };
-
-
-    // 锚点回到顶部
-    document.addEventListener("DOMContentLoaded", function () {
-    const backToTop = document.getElementById("backToTop");
-
-    // 监听滚动，控制按钮显示/隐藏
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > 200) {
-        backToTop.classList.add("show");
-      } else {
-        backToTop.classList.remove("show");
-      }
-    });
-
-    // 点击回到顶部
-    backToTop.addEventListener("click", function () {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-  });
-
-
-    // 页面加载动画
-    window.addEventListener("load", () => {
-        const loader = document.getElementById("loader");
-
-        if (!sessionStorage.getItem("pageLoadedOnce")) {
-            setTimeout(() => {
-                loader.style.display = "none";
-                sessionStorage.setItem("pageLoadedOnce", "true");
-            }, 1000); // 第一次加载延迟隐藏
-        } else {
-            loader.style.display = "none"; // 之后快速跳过
-        }
-    });
-
-</script>
+<script src="./script.js"></script>
 
 </html>
