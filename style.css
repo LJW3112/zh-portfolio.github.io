@@ -475,6 +475,19 @@ footer a:hover {
 }
 
 
+#visitCounter {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: sans-serif;
+  z-index: 9999;
+}
 
 /* 作品淡出动画 */
 @keyframes fadeInUp {

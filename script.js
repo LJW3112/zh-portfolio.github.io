@@ -112,3 +112,24 @@ submitBtn.onclick = () => {
     }
 };
 
+// 访问量统计
+ function fetchWithTimeout(resource, options = {}) {
+  const { timeout = 3000 } = options;
+
+  return Promise.race([
+    fetch(resource),
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error("Timeout")), timeout)
+    ),
+  ]);
+}
+
+fetchWithTimeout("https://vister-counter.romantically0312.workers.dev/", { timeout: 3000 })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("visits").textContent = data.visits;
+  })
+  .catch(err => {
+    console.error("访问统计失败：", err);
+    document.getElementById("visits").textContent = "N/A";
+  });

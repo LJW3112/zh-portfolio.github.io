@@ -3,9 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- SEO 关键标签 -->
     <title>Ceng's - 特效作品集</title>
@@ -14,6 +12,7 @@
     <meta name="author" content="Ceng's" />
 
     <meta name="theme-color" content="#4fa3ff" />
+
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="favator_1.png" type="image/x-icon">
     <link rel="manifest" href="manifest.json" />
@@ -25,7 +24,7 @@
         <div class="spinner"></div>
     </div>
 
-    <button id="themeToggle" title="切换主题">🌙</button>
+    <button id="themeToggle" title="切换主题" aria-label="切换亮暗模式">🌙</button>
 
     <header>
         <h1>张三丰大特笑师</h1>
@@ -35,7 +34,7 @@
 
     <section id="projects">
         <h2>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"
                 style="vertical-align: middle; margin-right: 8px;">
                 <path d="M3 6H21V18H3V6Z" stroke="currentColor" stroke-width="2" />
                 <path d="M8 6V18" stroke="currentColor" stroke-width="2" />
@@ -49,7 +48,7 @@
                 <h3>作品集1</h3>
                 <p class="video_1_description">以下作品集结合了 Houdini 和 Redshift 的技术，展示了粒子特效和破碎效果烟火等效果。</p>
                 <div class="video-wrapper">
-                    <video controls preload="none" poster="imgs/cover.png" loading="lazy" width="100%">
+                    <video controls preload="metadata" poster="imgs/cover.png" width="100%" aria-label="作品集1展示视频">
                         <source src="video/showreel_03_low.mp4" type="video/mp4" />
                         您的浏览器不支持视频播放。
                     </video>
@@ -65,13 +64,13 @@
                     <span>作品集</span>
                 </div>
             </div>
-
+        </div>
     </section>
 
 
     <section id="skills">
         <h2>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"
                 style="vertical-align: middle; margin-right: 8px;">
                 <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
                 <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" />
@@ -97,7 +96,7 @@
 
     <section id="contact">
         <h2>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"
                 style="vertical-align: middle; margin-right: 8px;">
                 <path d="M4 4H20V20H4V4Z" stroke="currentColor" stroke-width="2" />
                 <path d="M4 4L12 13L20 4" stroke="currentColor" stroke-width="2" />
@@ -107,7 +106,8 @@
 
         <ul class="contact">
             <li>邮箱: <a href="mailto:your.email@example.com">romantic312@163.com</a></li>
-            <li>GitHub: <a href="https://github.com/yourusername" target="_blank">LJW312</a></li>
+            <li>GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">LJW312</a>
+            </li>
             <li>其他联系: ...</li>
         </ul>
     </section>
@@ -117,39 +117,46 @@
             <summary>关于我</summary>
             <p>我是一个热爱特效的设计师，擅长使用各种工具实现创意。</p>
         </details>
-        <p>© 2025 Ceng's |
-            <!-- 下载简历按钮 -->
-            <button id="openModalBtn">下载简历</button>
 
-            <!-- 密码验证弹窗 -->
+        <p>
+            © 2025 Ceng's |
+            <!-- 下载简历按钮 -->
+            <button id="openModalBtn" aria-label="下载简历">下载简历</button>
+        </p>
+
+
+        <!-- 密码验证弹窗 -->
         <div id="passwordModal" class="modal">
             <div class="modal-content">
-                <span class="close" id="closeModal">&times;</span>
+                <span class="close" id="closeModal" aria-label="关闭">&times;</span>
                 <h3>请输入下载密码</h3>
                 <p style="font-size: 14px; color: #555;">
                     密码为当前年月日小时，例如：<code>2025062419</code>
                 </p>
-                <input type="text" id="passwordInput" placeholder="格式如 2025062419">
-                <button id="submitPassword">提交</button>
+                <input type="text" id="passwordInput" placeholder="格式如 2025062419" aria-label="下载密码">
+                <button id="submitPassword" aria-label="提交密码">提交</button>
                 <p id="errorMessage" style="color: red; display: none;">❌ 密码错误，请重试</p>
+
                 <p id="downloadHelp" style="color: green; display: none; margin-top: 10px;">
                     ✅ 下载已开始。如失败请 <a href="resume.pdf" download>点击此处手动下载</a>。
                 </p>
             </div>
         </div>
-        </p>
+
     </footer>
 
     <!-- 返回顶部按钮 -->
     <button id="backToTop" title="返回顶部" aria-label="返回顶部">
-        <svg class="arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M12 4L4 12h5v8h6v-8h5L12 4z" fill="currentColor" />
         </svg>
     </button>
 
+    <!-- 访问量徽章 -->
+    <div id="visitCounter">👁️ 已访问 <span id="visits">...</span> 次</div>
 
 </body>
 
-<script src="./script.js"></script>
+<script src="./script.js" defer></script>
 
 </html>
